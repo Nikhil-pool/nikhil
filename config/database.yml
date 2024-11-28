@@ -1,0 +1,40 @@
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: <%= ENV["RAILS_DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
+#   idle_timeout: <%= ENV["RAILS_IDLE_CONNECTION"] ||  60 %>
+#   port: <%= ENV['RAILS_DATABASE_PORT'] || 5432 %>
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: postgres
+  host: localhost
+
+development:
+  <<: *default
+  adapter: postgresql
+  database: demooo_dev 
+  username: postgres 
+  password: postgres 
+  host: localhost 
+  port: 5432
+
+test:
+  <<: *default
+  adapter: postgresql
+  database: demooo_test 
+  username: postgres 
+  password: postgres 
+  host: localhost 
+  port: 5432
+
+production:
+  <<: *default
+  database: demooo_prod
+  username: postgres 
+  password: postgres 
+  host: localhost 
+  port: 5432
